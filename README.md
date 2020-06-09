@@ -8,9 +8,6 @@ Both processed and raw emails are available for download. The raw emails were ut
 ## Results and Analysis 
 This report will explore in detail the classification pipeline built for the detection of spam and non-spam emails. The pipeline will be analysed under the following headings: 
 1.	Pre-processing 
-      •	Helper Functions
-      •	Train and Test Split 
-      •	Feature Extraction 
 2.	Exploratory data analysis 
 3.	Supervised classification 
 4.	 Model selection  
@@ -24,11 +21,13 @@ Please note that the downloaded version of the dataset contained five folders of
 The next step in the process is to use helper functions to extract only the body of the emails. The raw emails contain to and from email addresses, cc email addresses, attachments, message-ID etc.  For the classification pipeline only, the body of the emails will be used to classify between spam and ham. Therefore, the get_payload function was used from the package emails to return a list of email parts (Fig 1)  
 
 ![1](https://user-images.githubusercontent.com/50813004/84185049-582e7280-aa86-11ea-9f81-7718f1df9bb6.png) 
+	
 	Fig 1: Helper function for emails parts 
 
 The next function built was used to separate multiple emails addresses from the dataset (Fig 2). 
 
 ![2](https://user-images.githubusercontent.com/50813004/84185050-58c70900-aa86-11ea-809e-00a004b9a8a9.png)
+	
 	Fig 2: Helper function for emails addresses 
 
 The emails were then parsed into a list of email objects. The fields from the parsed emails objects were set as the keys. And a new data frame was built using the map function to set each key as a header. Each header now represents the parts of the emails extracted using the helper function in Fig 1 and Fig 2. The dataset is now 2429 rows long and contains 14 columns.  
@@ -36,11 +35,12 @@ Now a new data frame will be created, and the columns subject, content and targe
 
 
 
-	Train and Test Split
+### Train and Test Split
 
 Now that the emails are in a data frame, the next step in the pipeline was to split the dataset into a train and test set for classification. The code below (Fig3) enabled the train and test split.  
 
 ![3](https://user-images.githubusercontent.com/50813004/84185052-58c70900-aa86-11ea-9c0e-e3a954ed6142.png)  
+	
 	Fig 3: Train and Test Split
 
 The data was split 70/30 for train set and test set respectively. Splitting the data randomly ensured that the resultant two dataset were free from bias. 
