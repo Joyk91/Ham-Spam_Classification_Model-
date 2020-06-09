@@ -14,7 +14,8 @@ This report will explore in detail the classification pipeline built for the det
 
 
 ## 1.	Pre-processing  
-Helper Functions 
+
+#### Helper Functions 
 As mentioned the raw emails were utilised for this classification pipeline. Once the emails were downloaded 7-zip was used to extract the emails from the raw data. Once this was completed the spam and non-spam emails were read into Spyder separately as lists.  A binary variable was assigned to each email in the lists to distinguish between spam and non-spam. The spam list was assigned the dummy variable (labelled target) of 1 and the non-spam (also referred to as ham) was assigned the dummy variable of 0.  This dummy variable is known as ‘one-hot’ coding and is a particularly useful approach in Scikit-Learn package, as the packages models make the fundamental assumption that numerical features reflect algebraic quantities. Each list was transformed into a panda’s data frame containing the headings emails (containing all the emails) and target (depending on the data frame contained a 0 or 1 for ham and spam respectively). Both the datasets were then joined into one large dataset containing both ham and spam emails. 
 
 Please note that the downloaded version of the dataset contained five folders of both spam and ham in each. For processing capabilities, the pipeline was built using only one folder of each type of target.  
@@ -104,11 +105,13 @@ When we look at the difference between the two list of words it’s not surprisi
 
 The difference in length of emails in spam and ham was also analysed. Fig 8 & 9 shows summary statistic and visualisation of length of spam/ham emails. It was observed that the mean and median of ham emails are larger than spam emails, indicating that characteristically in this dataset ham emails are longer than spam emails. However, the barplots showed that sentences in spam emails are longer than those in ham emails. This may be due to the fact that spam emails are trying to make an impression on the recipient. Note that these plots were generated on the processed data. Therefore, stop words, illegal words etc have been removed. Therefore, the code was run again to generate the plots on the ram emails. The resultant plots can be seen below (Fig 10, Fig 11).   
 
-![11](https://user-images.githubusercontent.com/50813004/84185095-64b2cb00-aa86-11ea-8de4-9b6716726ab8.png)
-	
+
+	 
+![12](https://user-images.githubusercontent.com/50813004/84185096-654b6180-aa86-11ea-9edc-89258b650658.png)
+
 	Fig 10: Un-processed Length of Spam Emails 
 
-![12](https://user-images.githubusercontent.com/50813004/84185096-654b6180-aa86-11ea-9edc-89258b650658.png)
+![13](https://user-images.githubusercontent.com/50813004/84185098-654b6180-aa86-11ea-8391-339aff1791ec.png)
 	
 	Fig 11: Un-processed Length of Ham Emails 
 	
@@ -120,7 +123,7 @@ Utilising the Bag-of-Words and term frequency approach to create a matrix of wor
 A k-fold cross validation approach was utilised as a resampling method. K-fold cross validation is not only easy to use and interpret but previous experience with this resampling method proved its validity. In many circumstances K-fold cross validation results in a less optimistic estimate of the model skill than other methods, such as a simple train/test split, ensuring our data is not biased. Simply put k-fold cross validation randomly splits the data into k folds, of equal size. The first fold is treated as a validation set and the method is to fit on the remaining k – 1 folds. Because the dataset is not extremely large and also due to the fact that the dataset is slightly imbalanced 5 folds were utilised for the cross validation. 
 F1 scoring method was also utilised for the model building. As mentioned in the EDA section, the data between the classes (spam & ham) is unevenly distributed i.e there are more ham emails than spam. F1 scoring was chosen for this reason as it will seek balance between precision and recall. 
 
-![13](https://user-images.githubusercontent.com/50813004/84185098-654b6180-aa86-11ea-8391-339aff1791ec.png)
+
 
 The results from the model fitting can be seen in Table 1.  All models reported predictive accuracy in the 90th percentile. Support Vector Machine model proved to be the most accurate, followed closely by gradient boosting.  
 
