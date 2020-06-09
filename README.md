@@ -3,7 +3,14 @@
 
 ## Introduction
 The dataset used for this assignment is the Enron email dataset. The dataset is a collection of public domain emails from the Enron corporation. The emails in this dataset have been manually classified as spam and non-spam. The primary goal of the assignment is to create a supervised classification pipeline to classify emails as spam or non-spam from the training data.
-Both processed and raw emails are available for download. The raw emails were utilised for this project.
+Both processed and raw emails are available for download. The raw emails were utilised for this project. 
+
+The dataset that we will use for this assignment is the Enron email dataset. You can find the
+full dataset on the web here: http://www.aueb.gr/users/ion/data/enron-spam/. The dataset is a
+collection of public domain emails from the Enron corporation. The emails have been manually
+classified as spam and non-spam. The primary goal of the assignment is to create a supervised
+classification pipeline to classify emails as spam or non-spam from the training data. You are
+free to use either the preprocessed emails or the raw emails for your analysis.
 
 ## Results and Analysis 
 This report will explore in detail the classification pipeline built for the detection of spam and non-spam emails. The pipeline will be analysed under the following headings: 
